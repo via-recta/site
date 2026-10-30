@@ -864,7 +864,20 @@ a:hover {
     flex-direction: column;
     gap: 12px;
 }
-
+.schedule__iframe-wrap {
+    background: #f8f9fa;
+    border-radius: 16px;
+    padding: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    max-width: 700px;      /* ограничиваем ширину, чтобы не растягивался */
+    margin: 0 auto;        /* центрируем */
+}
+.schedule__iframe-wrap iframe {
+    display: block;
+    height: 450px;         /* компактная высота */
+    border-radius: 12px;
+}
 .contact-options__btn {
     text-align: center;
     background-color: transparent;
@@ -911,4 +924,59 @@ a:hover {
     .formats__grid--two {
         grid-template-columns: 1fr;
     }
+}
+/* ========== ОНЛАЙН-ЗАПИСЬ (GOOGLE CALENDAR) ========== */
+.booking {
+    padding: 60px 0;              /* было 100px — стало ближе к соседям */
+}
+
+.booking__subtitle {
+    text-align: center;
+    font-size: 18px;
+    line-height: 1.5;
+    opacity: 0.85;
+    max-width: 640px;
+    margin: -20px auto 25px;      /* меньше отступ от заголовка до виджета */
+}
+
+.booking__widget {
+    max-width: 1100px;            /* было 900px — шире */
+    width: 100%;
+    margin: 0 auto;
+    background-color: #f8f9fa;
+    border: 2px solid var(--accent-color);
+    border-radius: 16px;
+    padding: 10px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+    overflow: hidden;
+}
+
+.booking__widget iframe {
+    display: block;
+    width: 100%;
+    height: 620px;                /* чуть выше, чтобы влезал весь календарь */
+    border: 0;
+    border-radius: 10px;
+    background-color: #fff;
+}
+
+/* Адаптив */
+@media (max-width: 1199px) {
+    .booking__widget { max-width: 100%; }
+}
+
+@media (max-width: 959px) {
+    .booking { padding: 50px 0; }
+    .booking__widget iframe { height: 580px; }
+}
+
+@media (max-width: 639px) {
+    .booking { padding: 45px 0; }
+    .booking__subtitle { font-size: 16px; margin-bottom: 20px; }
+    .booking__widget { padding: 6px; border-radius: 12px; }
+    .booking__widget iframe { height: 540px; }
+}
+
+@media (max-width: 479px) {
+    .booking__widget iframe { height: 500px; }
 }
